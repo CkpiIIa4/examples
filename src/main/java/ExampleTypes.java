@@ -1,43 +1,45 @@
 public class ExampleTypes {
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     public static void main(String[] args) {
-        short a = 120;
-        short b = 543;
-        short c= (short)(a + b);
-        System.out.println("short - " + "a + b = " + c);
+        String a = new String("abcde");
+        String b = new String("abcde");
+        System.out.println("2 identical strings");
 
-        byte d = 12;
-        byte e = 53;
-        byte f= (byte)(d + e);
-        System.out.println("byte - " + "d + e = " + f);
+        if ( a == b )
+            System.out.println(" a == b - TRUE" );
+        else
+            System.out.println(" a == b - FALSE");
 
-        int g = 82356;
-        int h = 567432;
-        int i = h / g;
-        System.out.println("int - h / g = " + i);
+        if ( a.equals(b) )
+            System.out.println(" a == b - TRUE" );
+        else
+            System.out.println(" a == b - FALSE");
 
-        long j = 12435467;
-        long k = 76856743;
-        long m = j * k;
-        System.out.println("long  - j * k = " + m);
+        String c = new String("abcde");
+        String d = c;
+        System.out.println("1 string equals to both");
 
-        float n = 23.054f;
-        float o = 11.057f;
-        float p = n - o;
-        System.out.println("float - n - o = " + p);
+        if ( c == d )
+            System.out.println(" a == b - TRUE" );
+        else
+            System.out.println(" a == b - FALSE");
 
-        double r = 1.0005674;
-        double s = 2.054331;
-        double q = s % r;
-        System.out.println("double - s % r = " + q);
+        if ( c.equals(d) )
+            System.out.println(" a == b - TRUE" );
+        else
+            System.out.println(" a == b - FALSE");
 
-        boolean t = true;
-        boolean u = false;
-        System.out.println("boolean - t = " + t + "  u = " + u);
+        int hCode1 = a.hashCode();
+        int hCode2 = b.hashCode();
 
-        String s1 = "ab";
-        String s2 = "dv" + s1;
-        System.out.println(" Composite type ");
-        System.out.println("String - s1 = "  + s1 + " s2 = " + s2);
+        int hCode3 = a.hashCode();
+        int hCode4 = a.hashCode();
 
+        System.out.println("2 identical strings - " + hCode1 + "   " + hCode2);
+        System.out.println("1 string equal to both - " + hCode3 + "   " + hCode4);
     }
 }
